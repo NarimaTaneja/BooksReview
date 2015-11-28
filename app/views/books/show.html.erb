@@ -1,0 +1,71 @@
+<div class="container" id="bgimage">
+</div>
+
+<div class="main_content">
+	<div class="row">
+		<div id="book_top">
+			<div class="col-sm-4 ">
+			 	<div class="book">
+			 		<%= image_tag @book.image.url(:medium), class: "book_show" %>
+			 	</div>
+			</div>
+
+			<div class="col-sm-8">
+				<div class="panel-comment">
+					<div class="panel-heading text-center">
+							<h1><%= @book.name %></h1>		
+							<p>By : <%= @book.author %></p>	
+							<h2 class="avg-rating">Average Rating</h2>
+			<div class="average-review-rating" data-score=<%= @average_review %>></div>
+			<span class="number-of-reviews">Based on <%= @book.reviews.count %> reviews</span>
+					</div>
+					<div class="panel-body">
+						<p><%= @book.description %></p>
+						<p>Price : $ <%= @book.price %></p>
+					</div>
+
+					
+					<div class ="panel-footer">
+						<div class="col-md-offset-4">
+							<%= link_to 'Back', root_path,class: "btn btn-primary" %>
+							<%if current_user %>
+								<%= link_to 'Edit', edit_book_path,class: "btn btn-primary" %> 
+								<%= link_to 'Delete',book_path(@book), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-primary" %> 
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+	<div class="row">	
+		<div class="col-md-8">
+			<%= link_to "Add Review" , new_book_review_path(@book),class: "btn btn-primary"  %>
+			<% session[:no] = 1 %>
+			<%= render @book.reviews %>		
+		</div>	
+	</div>
+</div>
+
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
+
+
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>

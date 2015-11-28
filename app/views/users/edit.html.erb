@@ -1,0 +1,57 @@
+<div class="container" id="bgimage">
+</div>
+<div class="login">
+<%= simple_form_for(@user, html: {class: 'form-horizontal', multipart: true}) do |f| %>
+<div class="col-md-6 col-md-offset-3">
+		<div class="row">
+			<div class="panel">
+				<div class="panel-body">
+					<h4 align="center">Create an Account</h1>
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="image">
+							<%= f.label :image %>
+						</label>
+						<div class="col-sm-8">
+							<%= f.file_field :image %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="first_name">
+							<%= f.label :firstname %>
+						</label>
+						<div class="col-sm-8">
+							<%= f.text_field :first_name %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="last_name">
+							<%= f.label :lastname %>
+						</label>
+						<div class="col-sm-8">
+							<%= f.text_field :last_name %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-sm-4" for="email">
+							<%= f.label :email %>
+						</label>
+						<div class="col-sm-8">
+							<%= f.text_field  :email %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-8 col-md-offset-7">
+							<%= f.submit 'Create' ,class: "btn btn-primary" %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+

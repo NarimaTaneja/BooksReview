@@ -1,0 +1,91 @@
+<div class="col-md-6 col-md-offset-3">
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-heading text-center">
+				<h1>Edit Book</h1>
+			</div>
+			<div class="panel-body">
+				<%= simple_form_for(@book, html: {class: 'form-horizontal', multipart: true}) do |f| %>
+					<% if @book.errors.any? %>
+						<div id ="error_explaination">
+							<h2>
+								<%= pluarlize(@book.errors.count,"error") %>
+								prohibited this book form being saved:
+							</h2>
+							<ul>
+								<%= @book.errors.full_messages.each do |msg| %>
+								<li><%= msg %></li>
+								<% end %>
+							</ul>
+						</div>
+					<% end %>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="category">
+						<%= f.label :category %>
+					</label>
+					<div class="col-sm-8">
+						<%= f.select :category_id, @categories %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="image">
+						<%= f.label :image %>
+					</label>
+					<div class="col-sm-8">
+						<%= f.file_field :image , class: "form-control" %>
+					</div>
+				</div>
+	
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="name">
+						<%= f.label :name %>
+					</label>
+					<div class="col-sm-8">
+						<%= f.text_field :name ,class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="description">
+						<%= f.label :description %>
+					</label>
+					<div class="col-sm-8">
+						<%= f.text_area :description ,class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="price">
+						<%= f.label :price %>
+					</label>
+					<div class="col-sm-8">
+						<%= f.text_field :price , class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="author">
+						<%= f.label :author %>
+					</label>
+					<div class="col-sm-8 ">
+						<%= f.text_field :author , class: "form-control" %>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-2 col-md-offset-5">
+						<%= f.submit 'Submit',class: "btn btn-default" %>
+					</div>
+				</div>
+			<% end %>
+			</div>
+			<div class="panel-footer">
+				<div class="col-md-2 col-md-offset-5">
+					<%= link_to 'Cancel' , root_path, class: "btn btn-default" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

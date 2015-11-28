@@ -1,0 +1,27 @@
+<div>
+	<h1>
+		<%= params[:category] %>
+	</h1>
+</div>
+<% @books.each_slice(4) do |books|%>
+	<div class="row">
+		<div>
+			<% books.each do |book| %>
+				<div class="col-md-3">
+					<div class="book">
+							<%= link_to book do %>
+								<%= image_tag(book.image.url(:medium)) %>
+							<% end %> 
+						<%= link_to book.name, book %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+
+
+
+
+
+                                                                                                                                                                                                                                

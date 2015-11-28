@@ -1,0 +1,345 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@mixin box-shadow {
+    -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+    -moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+    box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+}
+
+
+#bgimage {
+        background: url('backfinal.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        opacity: .95;
+        background-attachment: fixed;
+        z-index: -999;
+        min-height: 1000px;
+        min-width: 1024px;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+
+@mixin background-tile {
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    padding: 1.5em 1.25em;
+}
+
+@mixin background1-tile {
+    box-sizing: border-box;
+    background-color: black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    padding: 1.5em 1.25em;
+}
+
+$red: white;
+
+body {
+    background: white;
+}
+
+.main_content {
+    padding: 0 0 50px 0;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    @include box-shadow;
+    background: white;
+    font-weight: bold;
+}
+
+.navbar {
+    margin-bottom: 50px;
+    @include box-shadow;
+    border: none;
+    background:#005387;
+    .navbar-brand {
+        letter-spacing: -1px;
+        font-weight: bold;
+        font-family: 'Jane Austen';
+        font-size: 25px;
+        a {
+            color: white;
+        }
+    }
+}
+
+a {
+    color: white;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 30px;
+    color: black;
+    font-family: arial, sans-serif;
+}
+
+h6 {
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    font-family: arial, sans-serif;
+}
+
+p {
+    font-size: 20px;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    
+}
+
+p1 {
+    font-size: 15px;
+    color: black;
+    font-family: "Times New Roman", Times, serif;    
+}
+ph {
+    font-size: 15px;
+    color: #0083d5;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;    
+}
+
+
+.panel {
+     background: #0083d5;
+     @include background-tile
+}
+
+.panel-comment {
+     background: white;
+     @include background-tile
+
+}
+
+.panel-footer{
+         background: white;
+    }
+
+.user_image {
+    max-width: 100%;
+    border-radius: 8px
+   
+}
+
+
+.footer{
+      background:#005387;
+}
+
+.panel-login{
+    max-width: 100%;
+    border-radius: 8px;
+    background-image: image-url("/assets/book.jpeg")
+}
+
+.book {
+    background: #141C22;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    @include background-tile;
+    .image_wrapper {
+        max-width: 100%;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+    }
+    img {
+        width: 100%;
+        -webkit-transition: all .3s ease-out;
+      -moz-transition: all .3s ease-out;
+      -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+        &:hover {
+            transform: scale(1.075);
+        }
+    }
+    h2 {
+        padding: 15px 5%;
+        margin: 0;
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 1.5;
+        a {
+            color: $red;
+        }
+    }
+}
+
+
+
+#book_top {
+    margin-bottom: 50px;
+}
+
+#book_info{
+    background: white;
+    @include box-shadow;
+    min-height: 360px;
+    border-radius: 5px;
+    padding: 2em 8%;
+}
+
+.book_image {
+    max-width: 100%;
+    border-radius: 8px;
+    @include background1-tile;
+}
+
+#book_info {
+    h1 {
+        font-size: 36px;
+        font-weight: normal;
+        color: $red;
+    }
+    .description {
+        color: #8A8A8A;
+        font-size: 20px;
+    }
+}
+
+#user_info {
+    background: white;
+    @include box-shadow;
+    min-height: 100px;
+    border-radius: 5px;
+    padding: 2em 8%;
+    h1 {
+        font-size: 18px;
+        font-weight: normal;
+        color: #005387;
+    }
+}
+
+
+
+.login label {
+     color: #005387
+}
+
+
+.form-inline {
+    margin-top: 10px;
+}
+.form-input {
+    width: 65% !important;
+    float: left;
+}
+.form-button {
+    float: left;
+    width: 30% !important;
+    margin-left: 5%;
+}
+
+.add-button {
+    margin-top: 25px;
+}
+.reviews {
+
+    @include background-tile;
+    margin-top: 40px;
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 2em;
+    }
+
+    .review {
+        border-bottom: 1px solid gainsboro;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+
+        .review-comment {
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+    }
+
+    .new-review {
+        padding-top: 8px;
+    }
+
+}
+
+
+.btn-custom {
+    color: darken(#f1c40f, 5%);
+    background-color: #fff;
+    border: 1px solid darken(#f1c40f, 5%);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    &:hover {
+        text-decoration: none;
+        background-color: darken(#f1c40f, 5%);
+        color: #fff;
+        transition: 0.5s;
+    }
+}
+
+.btn-custom2 {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #222;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    &:hover {
+        text-decoration: none;
+        background-color: #333;
+        color: #fff;
+        transition: 0.5s;
+    }   
+}
+
+.links {
+
+    .btn-custom {
+        padding: 3px 10px;
+        font-weight: 300;
+    }
+
+}
+
+.book-links {
+
+    .btn-custom {
+        padding: 3px 10px;
+        font-weight: 300;
+        margin-top: 40px;   
+    }
+
+}
