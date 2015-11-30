@@ -19,7 +19,7 @@
 			<li><%= link_to "SignUp", new_user_path %></li>
 			<% if current_user %>		
 				<li><%= link_to "SignOut",logout_path, method: 	:delete %></li>
-				<% @user = User.find(session[:user_id]) %>
+				<% @user = User.find_by_auth_token(cookies[:auth_token]) %>
 				<li><%= link_to "MyProfile", user_path(@user) %></li>
 			<% else %>		
 				<li><%= link_to "SignIn", login_path %></li>

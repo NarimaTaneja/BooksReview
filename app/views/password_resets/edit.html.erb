@@ -1,0 +1,43 @@
+<%= simple_form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+	<% if @user.errors.any? %>
+		<div class = "error_messages">
+			<h2>Form is invalid</h2>
+			<ul>
+				<% for message in @users.errors.full_messages %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+			<div class="panel">
+				<div class="panel-header text-center">
+					<h1>New Password</h1>
+				</div>
+					
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="control-label col-sm-1" for="password" >
+							<%= f.label :password %>
+						</label>
+
+						<div class="col-sm-3" >
+							<%= f.text_field :password , class: "form-control" %>
+						</div>
+
+						<label class="control-label col-sm-2" for="password_confirmation" >
+							<%= f.label :password_confirmation %>
+						</label>
+						<div class="col-sm-3" >
+							<%= f.text_field :password_confirmation , class: "form-control" %>
+						</div>
+
+						<div class="col-sm-2 ">
+							<%= f.submit 'Submit',class: "btn btn-primary" %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+<% end %>
+
+
