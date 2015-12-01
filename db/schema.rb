@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130001327) do
+ActiveRecord::Schema.define(version: 20151130183444) do
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20151130001327) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "role"
   end
 
 end

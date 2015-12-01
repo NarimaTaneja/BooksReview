@@ -43,7 +43,7 @@
 				</ul>
 			</li>
 			
-			<% if current_user %>
+			<% if current_user && current_user.admin? %>
 				<li><%= link_to "Add Book", new_book_path %></li>
 			<% end %>
 		</ul>

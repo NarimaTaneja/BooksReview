@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(cookies[:auth_token])
+    @user = User.where(auth_token: cookies[:auth_token])
   end
 
   def create 
@@ -18,11 +18,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-     @user = User.find(session[:user_id])
+     @user = User.where(auth_token: cookies[:auth_token])
   end
 
   def update
-    @user = User.find(session[:user_id])
+    @user = User.where(auth_token: cookies[:auth_token])
     if @user.update(user_params)
       redirect_to user_path(@user)
     else

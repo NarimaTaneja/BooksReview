@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
 	before_action :find_review , only: [:show , :edit ,:update ,:destroy ]
 	before_action :find_book
+	before_action :require_admin only: [:destroy]
+
 	def new
 		@review = Review.new
 	end
