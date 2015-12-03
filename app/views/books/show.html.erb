@@ -28,7 +28,7 @@
 					<div class ="panel-footer">
 					
 							<%= link_to 'Back', root_path , class: "btn btn-primary" %>		
-								<% if current_user.admin? %>
+								<% if current_user && current_user.admin? %>
 										<%= link_to 'Edit', edit_book_path , class: "btn btn-primary" %> 
 									<%= link_to 'Delete',book_path(@book), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-primary" %> 
 								<% end %>
